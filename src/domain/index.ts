@@ -1,0 +1,11 @@
+export * from './types';
+export * from './constants';
+export { cumulativeInflation } from './inflation';
+export { getParams } from './params';
+export { laborReduction, art20Meta } from './laborReduction';
+export { smiDeduction } from './smiDeduction';
+export { bracketQuotas } from './taxBrackets';
+export { computeSocialSecurity } from './socialSecurity';
+export { computePayroll, computePayrollWithParams } from './payroll';
+export { buildInflationSeries } from './comparison';
+export type { InflationComparisonPoint } from './comparison';
