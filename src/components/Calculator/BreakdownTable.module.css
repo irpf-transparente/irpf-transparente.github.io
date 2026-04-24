@@ -1,0 +1,130 @@
+.root {
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table tr {
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.table tr:last-child {
+  border-bottom: 0;
+}
+
+.label {
+  text-align: left;
+  font-weight: 400;
+  padding: var(--space-2) 0;
+  font-size: 0.9375rem;
+}
+
+.sublabel {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  margin-top: 2px;
+}
+
+.value {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  padding: var(--space-2) 0;
+  font-size: 0.9375rem;
+}
+
+.sum th,
+.sum .value {
+  font-weight: 600;
+}
+
+.sub .value {
+  color: var(--color-warn);
+}
+
+.highlight {
+  background: linear-gradient(90deg, transparent, rgba(124, 240, 194, 0.08));
+}
+
+.highlight th,
+.highlight .value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent);
+}
+
+.details {
+  margin-top: var(--space-4);
+  font-size: 0.875rem;
+}
+
+.details summary {
+  cursor: pointer;
+  color: var(--color-text-dim);
+  padding: var(--space-2) 0;
+}
+
+.details summary:hover {
+  color: var(--color-text);
+}
+
+.subtable {
+  width: 100%;
+  margin-top: var(--space-2);
+  border-collapse: collapse;
+}
+
+.subtable th {
+  text-align: left;
+  color: var(--color-text-dim);
+  font-weight: 500;
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.8125rem;
+}
+
+.subtable th:last-child {
+  text-align: right;
+}
+
+.subtable td {
+  padding: var(--space-1) var(--space-2);
+  font-size: 0.875rem;
+}
+
+.costHint {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  color: var(--color-text-dim);
+}
+
+.costHint strong {
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+}
+
+.costHintDim {
+  color: var(--color-text-dim);
+  font-size: 0.8125rem;
+}

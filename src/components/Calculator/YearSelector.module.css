@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.pill {
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elev);
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.875rem;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+
+.pill:hover {
+  color: var(--color-text);
+  border-color: var(--color-neutral);
+}
+
+.active {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+.active:hover {
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}

@@ -1,0 +1,27 @@
+.root {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: minmax(280px, 1fr) minmax(0, 1.5fr);
+  align-items: start;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  background: var(--color-bg-elev);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  position: sticky;
+  top: var(--space-5);
+}
+
+@media (max-width: 860px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    position: static;
+  }
+}
