@@ -1,0 +1,18 @@
+.svg {
+  display: block;
+  overflow: visible;
+  font-family: var(--font-sans);
+}
+
+.annotation {
+  font-size: 11px;
+  fill: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+
+.subTitle {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-2);
+}

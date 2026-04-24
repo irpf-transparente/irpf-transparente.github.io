@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import type { Year } from '../../domain/types';
 import { usePayrollCalc } from '../../hooks/usePayrollCalc';
 import { BreakdownTable } from './BreakdownTable';
@@ -6,17 +5,21 @@ import { SalaryInput } from './SalaryInput';
 import { YearSelector } from './YearSelector';
 import styles from './Calculator.module.css';
 
-export function Calculator() {
-  const [year, setYear] = useState<Year>(2026);
-  const [bruto, setBruto] = useState<number>(30000);
+interface Props {
+  year: Year;
+  bruto: number;
+  onYearChange: (year: Year) => void;
+  onBrutoChange: (bruto: number) => void;
+}
 
+export function Calculator({ year, bruto, onYearChange, onBrutoChange }: Props) {
   const breakdown = usePayrollCalc(bruto, year);
 
   return (
     <section className={styles.root}>
       <div className={styles.controls}>
-        <YearSelector value={year} onChange={setYear} />
-        <SalaryInput value={bruto} onChange={setBruto} />
+        <YearSelector value={year} onChange={onYearChange} />
+        <SalaryInput value={bruto} onChange={onBrutoChange} />
       </div>
       <BreakdownTable breakdown={breakdown} />
     </section>
