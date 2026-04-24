@@ -1,32 +1,58 @@
 .root {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.root::before {
+  content: 'Año fiscal';
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-dim);
+}
+
+.pillGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-1);
 }
 
 .pill {
-  padding: var(--space-2) var(--space-4);
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg-elev);
-  color: var(--color-text-dim);
+  padding: var(--space-2) 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  background: transparent;
+  border: var(--hair) solid var(--color-rule-soft);
+  border-radius: var(--radius-sm);
   font-variant-numeric: tabular-nums;
-  font-size: 0.875rem;
-  transition: background 120ms, color 120ms, border-color 120ms;
+  letter-spacing: 0;
+  text-align: center;
+  transition: color 120ms ease, background 120ms ease, border-color 120ms ease;
 }
 
 .pill:hover {
-  color: var(--color-text);
-  border-color: var(--color-neutral);
+  color: var(--color-ink);
+  border-color: var(--color-rule);
+  background: var(--color-paper-dim);
 }
 
-.active {
-  background: var(--color-accent);
-  color: var(--color-bg);
-  border-color: var(--color-accent);
+.pill.active {
+  color: var(--color-paper-lift);
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  font-weight: 600;
 }
 
-.active:hover {
-  color: var(--color-bg);
-  border-color: var(--color-accent);
+.pill.active:hover {
+  background: var(--color-ink);
+}
+
+.pill:focus-visible {
+  outline: 2px solid var(--color-irpf);
+  outline-offset: 2px;
 }

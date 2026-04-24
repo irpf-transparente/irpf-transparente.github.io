@@ -15,18 +15,20 @@ const YEARS: Year[] = Array.from(
 export function YearSelector({ value, onChange }: Props) {
   return (
     <div className={styles.root} role="radiogroup" aria-label="Año">
-      {YEARS.map((year) => (
-        <button
-          key={year}
-          type="button"
-          role="radio"
-          aria-checked={year === value}
-          className={`${styles.pill} ${year === value ? styles.active : ''}`}
-          onClick={() => onChange(year)}
-        >
-          {year}
-        </button>
-      ))}
+      <div className={styles.pillGrid}>
+        {YEARS.map((year) => (
+          <button
+            key={year}
+            type="button"
+            role="radio"
+            aria-checked={year === value}
+            className={`${styles.pill} ${year === value ? styles.active : ''}`}
+            onClick={() => onChange(year)}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }

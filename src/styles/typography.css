@@ -1,0 +1,90 @@
+/* Editorial typography primitives.
+ * Scoped to semantic elements only — components still use CSS Modules.
+ */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-prose);
+  color: var(--color-ink);
+  background: var(--color-paper);
+  background-image: var(--paper-texture);
+  background-attachment: fixed;
+  font-feature-settings: 'ss01', 'cv11', 'kern';
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Give serif headings their natural rhythm when they land in a block
+ * of CSS-Module classes.  Components can still override locally. */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  font-optical-sizing: auto;
+}
+
+p, li {
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-irpf);
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.22em;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
+}
+
+a:hover {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-ss-soft);
+  color: var(--color-ink);
+}
+
+/* Tabular numerics everywhere a number might land unless overridden.
+ * Gives tables / breakdowns / charts consistent currency alignment. */
+.num,
+[data-num] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Small caps utility (editorial eyebrows, section labels). */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-dim);
+}
+
+/* Subtle entrance animation used by layout scaffolding. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect user motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

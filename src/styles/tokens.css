@@ -1,20 +1,73 @@
 :root {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  /* -------------------------------------------------------
+   * Paper palette — warm cream/oxblood/ochre/pine editorial
+   * ------------------------------------------------------- */
+  --color-paper: #F5F0E6;           /* base cream */
+  --color-paper-dim: #EDE5D3;       /* elevation DOWN (insets, wells) */
+  --color-paper-lift: #FBF7ED;      /* elevation UP (cards) */
 
-  --color-bg: #0b1020;
-  --color-bg-elev: #121833;
-  --color-bg-soft: #1a2348;
-  --color-text: #e7ecff;
-  --color-text-dim: #97a0c7;
-  --color-border: #2a3565;
+  --color-ink: #1B1410;             /* warm near-black */
+  --color-ink-muted: #5C5043;       /* body muted */
+  --color-ink-dim: #8A7C6B;         /* caption / label */
 
-  --color-accent: #7cf0c2;
-  --color-accent-dim: #3da785;
-  --color-warn: #ffb86b;
-  --color-danger: #ff6b8a;
-  --color-neutral: #7a88c9;
+  --color-rule: #C4B59B;            /* primary hairline */
+  --color-rule-soft: #E0D5BC;       /* secondary hairline */
 
+  --color-neto: #2B5F3F;            /* pine — salary take-home */
+  --color-neto-soft: #CFE0D3;
+  --color-ss: #B58A2A;              /* ochre — social security */
+  --color-ss-soft: #F1E1B9;
+  --color-irpf: #9A2A1E;            /* oxblood — income tax */
+  --color-irpf-soft: #EED0CC;
+
+  --color-accent: var(--color-neto);
+  --color-warn: var(--color-ss);
+  --color-danger: var(--color-irpf);
+
+  /* Alias map onto legacy token names so existing components
+   * (charts, header, breakdown, calculator) keep working. */
+  --color-bg: var(--color-paper);
+  --color-bg-elev: var(--color-paper-lift);
+  --color-bg-soft: var(--color-paper-dim);
+  --color-text: var(--color-ink);
+  --color-text-dim: var(--color-ink-muted);
+  --color-border: var(--color-rule);
+  --color-neutral: var(--color-ink-dim);
+
+  /* -------------------------------------------------------
+   * Typography
+   * ------------------------------------------------------- */
+  --font-serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-sans: 'DM Sans', 'Helvetica Neue', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'Menlo', 'Consolas', monospace;
+
+  /* Major-third type scale */
+  --fs-3xs: 0.6875rem;   /* 11 — marginalia / section numbers */
+  --fs-2xs: 0.75rem;     /* 12 — caption */
+  --fs-xs: 0.8125rem;    /* 13 — small body */
+  --fs-sm: 0.9375rem;    /* 15 — body */
+  --fs-base: 1rem;       /* 16 */
+  --fs-md: 1.125rem;     /* 18 */
+  --fs-lg: 1.375rem;     /* 22 */
+  --fs-xl: 1.75rem;      /* 28 */
+  --fs-2xl: 2.375rem;    /* 38 */
+  --fs-3xl: 3.25rem;     /* 52 */
+  --fs-4xl: 4.25rem;     /* 68 */
+  --fs-display: 5.75rem; /* 92 — hero number */
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-prose: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-eyebrow: 0.22em;
+
+  /* -------------------------------------------------------
+   * Space — 4/8pt base with editorial rhythm
+   * ------------------------------------------------------- */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -23,11 +76,28 @@
   --space-6: 32px;
   --space-7: 48px;
   --space-8: 64px;
+  --space-9: 96px;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* -------------------------------------------------------
+   * Shape & elevation
+   * ------------------------------------------------------- */
+  --radius-xs: 1px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-pill: 999px;
 
-  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-1: 0 1px 0 rgba(27, 20, 16, 0.04);
+  --shadow-2: 0 2px 6px rgba(27, 20, 16, 0.05), 0 1px 0 rgba(27, 20, 16, 0.03);
+  --shadow-3: 0 10px 32px -8px rgba(27, 20, 16, 0.10), 0 2px 0 rgba(27, 20, 16, 0.04);
+
+  /* Hairline width used everywhere */
+  --hair: 1px;
+
+  /* -------------------------------------------------------
+   * Paper texture — subtle noise + grain, layered
+   * ------------------------------------------------------- */
+  --paper-texture:
+    radial-gradient(ellipse at 15% -10%, rgba(197, 138, 85, 0.10), transparent 55%),
+    radial-gradient(ellipse at 85% 110%, rgba(154, 42, 30, 0.05), transparent 45%);
 }

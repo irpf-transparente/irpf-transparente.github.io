@@ -1,36 +1,136 @@
 .app {
   min-height: 100vh;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(var(--space-4), 4vw, var(--space-7));
+  position: relative;
+}
+
+.marginalia {
+  position: fixed;
+  top: 50%;
+  left: max(var(--space-2), calc((100vw - 1240px) / 2 - var(--space-4)));
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-3xs);
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--color-ink-dim);
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (max-width: 980px) {
+  .marginalia {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------
+ * Header — editorial masthead
+ * ------------------------------------------------------------ */
+.header {
+  padding: clamp(var(--space-6), 8vw, var(--space-9)) 0 var(--space-7);
+  border-bottom: var(--hair) solid var(--color-rule);
+  animation: rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-4);
+  color: var(--color-irpf);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--fs-3xl), 9vw, var(--fs-4xl));
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  margin-bottom: var(--space-5);
+  /* Fraunces is a variable font — let it breathe at display sizes. */
+  font-variation-settings: 'opsz' 120, 'SOFT' 50, 'WONK' 0;
+}
+
+.title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-irpf);
+  font-variation-settings: 'opsz' 144, 'SOFT' 100, 'WONK' 1;
+}
+
+.dek {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--fs-md), 2vw, var(--fs-lg));
+  font-weight: 300;
+  line-height: var(--lh-snug);
+  color: var(--color-ink-muted);
+  max-width: 56ch;
+  font-variation-settings: 'opsz' 36;
+}
+
+.dek em {
+  font-style: italic;
+  color: var(--color-ink);
+}
+
+/* ------------------------------------------------------------
+ * Main & sections
+ * ------------------------------------------------------------ */
+.main {
+  padding: var(--space-8) 0;
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-5);
+  gap: var(--space-9);
 }
 
-.header {
-  padding: var(--space-7) 0 var(--space-5);
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--space-6);
-}
-
-.header h1 {
-  font-size: 1.75rem;
-  letter-spacing: -0.01em;
-  margin-bottom: var(--space-2);
-}
-
-.header p {
-  color: var(--color-text-dim);
-  font-size: 0.9375rem;
-  max-width: 60ch;
-}
-
-.main {
-  flex: 1;
-  padding-bottom: var(--space-8);
+.section {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  animation: rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: 120ms;
+}
+
+.section:nth-of-type(2) { animation-delay: 180ms; }
+.section:nth-of-type(3) { animation-delay: 240ms; }
+
+.sectionHeader {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  grid-column-gap: var(--space-5);
+  grid-row-gap: var(--space-3);
+  align-items: baseline;
+  padding-bottom: var(--space-4);
+  border-bottom: var(--hair) solid var(--color-rule-soft);
+}
+
+.sectionNumber {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-ink-dim);
+  padding-top: 0.7em;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--fs-xl), 4vw, var(--fs-2xl));
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: 'opsz' 60;
+}
+
+.sectionKicker {
+  grid-column: 2;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-prose);
+  color: var(--color-ink-muted);
+  max-width: 62ch;
 }
 
 .chartsGrid {
@@ -39,15 +139,44 @@
   gap: var(--space-5);
 }
 
+/* ------------------------------------------------------------
+ * Footer — editorial colophon
+ * ------------------------------------------------------------ */
 .footer {
-  padding: var(--space-5) 0;
-  border-top: 1px solid var(--color-border);
-  color: var(--color-text-dim);
-  font-size: 0.8125rem;
+  padding: var(--space-8) 0 var(--space-7);
 }
 
-.footer a {
-  color: var(--color-accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.footerRule {
+  height: var(--hair);
+  background: var(--color-rule);
+  margin-bottom: var(--space-5);
+  position: relative;
+}
+
+.footerRule::before,
+.footerRule::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-irpf);
+}
+
+.footerRule::before { left: 0; }
+.footerRule::after { right: 0; }
+
+.colophon {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--color-ink-muted);
+  max-width: 62ch;
+  line-height: var(--lh-prose);
+}
+
+.colophonLabel {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-ink-dim);
 }

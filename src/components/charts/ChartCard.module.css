@@ -1,40 +1,61 @@
 .root {
-  background: var(--color-bg-elev);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
+  background: var(--color-paper-lift);
+  border: var(--hair) solid var(--color-rule);
+  border-radius: var(--radius-md);
+  padding: var(--space-5) var(--space-5) var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-5);
+  box-shadow: var(--shadow-1);
+  position: relative;
+}
+
+.root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: var(--space-5);
+  right: var(--space-5);
+  height: 2px;
+  background: var(--color-ink);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-4);
+  gap: var(--space-5);
   flex-wrap: wrap;
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: var(--tracking-tight);
+  font-variation-settings: 'opsz' 32;
 }
 
 .subtitle {
-  color: var(--color-text-dim);
-  font-size: 0.8125rem;
-  margin-top: 2px;
-  max-width: 55ch;
+  font-family: var(--font-sans);
+  color: var(--color-ink-muted);
+  font-size: var(--fs-xs);
+  margin-top: var(--space-2);
+  max-width: 60ch;
+  line-height: var(--lh-prose);
+  font-style: italic;
 }
 
 .legend {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-4);
   flex-wrap: wrap;
-  font-size: 0.8125rem;
-  color: var(--color-text-dim);
+  font-family: var(--font-sans);
+  font-size: var(--fs-2xs);
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
 }
 
 .legendItem {
@@ -47,7 +68,7 @@
   display: inline-block;
   width: 10px;
   height: 10px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .body {

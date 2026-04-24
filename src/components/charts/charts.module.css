@@ -5,14 +5,18 @@
 }
 
 .annotation {
+  font-family: var(--font-mono);
   font-size: 11px;
-  fill: var(--color-text);
+  fill: var(--color-ink);
   font-variant-numeric: tabular-nums;
   pointer-events: none;
+  letter-spacing: -0.01em;
 }
 
 .subTitle {
-  font-size: 0.75rem;
-  color: var(--color-text-dim);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  color: var(--color-ink-muted);
   margin-bottom: var(--space-2);
+  font-style: italic;
 }
