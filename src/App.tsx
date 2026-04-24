@@ -1,16 +1,15 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Calculator } from './components/Calculator/Calculator';
 import { InflationCompareChart } from './components/charts/InflationCompareChart';
 import { NetVsGrossChart } from './components/charts/NetVsGrossChart';
 import { PayrollWaterfall } from './components/charts/PayrollWaterfall';
 import { cumulativeInflation } from './domain/inflation';
 import { computePayroll } from './domain/payroll';
-import type { Year } from './domain/types';
+import { useUrlState } from './hooks/useUrlState';
 import styles from './App.module.css';
 
 export default function App() {
-  const [year, setYear] = useState<Year>(2026);
-  const [bruto, setBruto] = useState<number>(30000);
+  const [{ year, bruto }, patch] = useUrlState();
 
   const breakdown = useMemo(() => computePayroll(bruto, year), [bruto, year]);
 
@@ -36,8 +35,8 @@ export default function App() {
         <Calculator
           year={year}
           bruto={bruto}
-          onYearChange={setYear}
-          onBrutoChange={setBruto}
+          onYearChange={(y) => patch({ year: y })}
+          onBrutoChange={(b) => patch({ bruto: b })}
         />
 
         <div className={styles.chartsGrid}>
